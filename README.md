@@ -1,2 +1,2 @@
-# e-commerce-platform5
+# e-commerce-platform
 A web based handmade shop project
