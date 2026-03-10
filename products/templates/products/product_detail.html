@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="product-detail">
+    <div class="detail-container">
+        <div class="detail-image">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="detail-info">
+            <h2>{{ product.name }}</h2>
+            <p class="price">KES {{ product.price }}</p>
+            <p class="description">{{ product.description }}</p>
+            <a href="#" class="btn">Add to Cart</a>
+            <a href="{% url 'shop' %}" class="back-link">← Back to Shop</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

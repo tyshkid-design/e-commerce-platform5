@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Handmade</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Hero section */
+        .hero-login {
+            height: 100vh;
+            background-image: url('{% static "images/handmade-hero.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Form container */
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 350px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .login-container p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .login-container input:focus {
+            border-color: #0077ff ;
+            box-shadow: 0 0 10px rgba(0,123,255,0.3);
+        }
+
+        /* Form inputs */
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        /* Login button */
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #1c7cd6;
+        }
+
+        /* Signup link */
+        .signup-link {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-login">
+        <div class="login-container">
+            <h2>Welcome Back!</h2>
+            <p>Sign in to continue your handmade shopping experience.</p>
+
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn-login">Login</button>
+            </form>
+
+            <p class="signup-link">
+                Don't have an account? <a href="{% url 'signup' %}">Sign up</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

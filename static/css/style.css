@@ -1,0 +1,180 @@
+/* Navbar container */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* logo left, links right */
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #0077cc; /* navbar background */
+}
+
+/* Logo */
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+/* Nav links container */
+.navbar .nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Links and buttons */
+.navbar .nav-links a,
+.navbar .nav-links button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff;                  /* text color */
+    background-color: #005fa3;     /* button background */
+    border: none;
+    cursor: pointer;
+    text-decoration: none;         /* remove underline */
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.navbar .nav-links a:hover,
+.navbar .nav-links button:hover {
+    background-color: #004f80;     /* darker blue on hover */
+    transform: scale(1.05);        /* subtle pop effect */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    .navbar .nav-links a,
+    .navbar .nav-links button {
+        width: 100%;
+        text-align: center;
+    }
+}
+    /* Global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    background: url("../images/hero.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: #0077cc;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #005fa3;
+}
+
+/* Product Grid */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.product-card {
+    background: #f7f7f7;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* Product Detail Page */
+.product-detail {
+    padding: 2rem;
+}
+
+.detail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.detail-image img {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.detail-info {
+    max-width: 400px;
+    text-align: left;
+}
+
+.price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.description {
+    margin-bottom: 1.5rem;
+}
+
+.back-link {
+    display: block;
+    margin-top: 1rem;
+    text-decoration: none;
+    color: #0077cc;
+}
