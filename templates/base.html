@@ -8,18 +8,75 @@
     <title>Handmade Shop</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    const messagesContainer = document.querySelector('.messages');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent page reload
+            const productId = this.dataset.productId; // Make sure button has data-product-id attribute
+
+            fetch(/add-to-cart/${productId}/, {
+                method: 'GET', // Your Django view currently expects GET
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Create message div
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.textContent = data.message || 'Added to cart!';
+                
+                messagesContainer.appendChild(messageDiv);
+
+                // Remove the message after animation duration
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 3000);
+            })
+            .catch(err => {
+                console.error('Error adding to cart:', err);
+            });
+        });
+    });
+});
+</script>
 <body>
-    <!-- Header -->
+    <!-- Navbar/Header -->
     <header>
         <nav class="navbar">
-            <a href="{% url 'home' %} " class="logo">Handmade Shop</a>
+            <a href="{% url 'home' %}" class="logo">Handmade Shop</a>
             <div class="nav-links">
                 <a href="{% url 'home' %}">Home</a>
                 <a href="{% url 'shop' %}">Shop</a>
-                <a href="{% url 'login' %}">Login</a>
+
+                {% if user.is_authenticated %}
+                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
+                {% endif %}
+                <a href="{% url 'cart' %}">
+                    Cart ({{ cart_items_count }}) </a>   
             </div>
         </nav>
     </header>
+
+    <!-- Floating messages -->
+        <div class="messages">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="message {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
 
     <!-- Main content -->
     <main>

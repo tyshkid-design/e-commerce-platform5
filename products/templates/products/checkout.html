@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<h1 style="text-align:center; margin-top:20px;">Checkout</h1>
+
+{% if cart_items %}
+<table class="checkout-table">
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+    </tr>
+    {% for item in cart_items %}
+    <tr>
+        <td>{{ item.product.name }}</td>
+        <td>KES {{ item.product.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>KES {{ item.subtotal }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p class="checkout-total">Total: KES {{ total }}</p>
+
+<div class="checkout-buttons">
+    <button class="btn">Place Order</button>
+</div>
+
+{% else %}
+<p style="text-align:center; margin-top:50px;">Your cart is empty.</p>
+<a href="{% url 'shop' %}" class="btn" style="display:block; text-align:center; margin:20px auto;">Go to Shop</a>
+{% endif %}
+
+</body>
+</html>

@@ -21,13 +21,20 @@ from django.urls import path, include
 from products import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Home page
     path('shop/', views.shop, name='shop'),  # Shop page
     path('product/<int:product_id>/', views.product_detail, name='product_detail'),  # Product detail page
-    path('accounts/', include('django.contrib.auth.urls')),  # For login/logout
-    path('accounts/', include('products.urls')),  # For signup and other product-related URLs
+
+    # Auth URLs (login/logout/password)
+    path('accounts/', include('django.contrib.auth.urls')),
+
+    # Signup page under /accounts/signup/
+    path('accounts/', include('products.urls')),
+    path('', include('products.urls')),  # Include product app URLs
 ]
 
+# Serve media files (optional)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

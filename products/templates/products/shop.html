@@ -6,12 +6,18 @@
     <h1>Our Products</h1>
     <p>Explore our unique handmade creations.</p>
 
+    <form method="GET" action="{% url 'shop' %}" style="text-align:center; margin:20px;">
+         <input type="text" name="q" placeholder="Search products..." style="padding:10px; width:250px;">
+         <button type="submit" style="padding:10px;">Search</button>
+    </form>
+
     <div class="product-grid">
         {% for product in products %}
         <div class="product-card">
             <img src="{{ product.image.url }}" alt="{{ product.name }}">
             <h3>{{ product.name }}</h3>
             <p>KES {{ product.price }}</p>
+            <p>By <a href="{% url 'artist_profile' product.artist.id %}">{{ product.artist.name }}</a></p>  
             <a href="{% url 'product_detail' product.id %}" class="btn">View Details</a>
         </div>
         {% endfor %}

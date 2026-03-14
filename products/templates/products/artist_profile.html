@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ artist.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<h1 style="text-align:center;">{{ artist.name }}</h1>
+
+<p style="text-align:center; width:60%; margin:auto;">
+{{ artist.bio }}
+</p>
+
+<h2 style="text-align:center; margin-top:40px;">Products by {{ artist.name }}</h2>
+
+<div style="width:80%; margin:auto; display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+{% for product in products %}
+
+<div style="border:1px solid #ddd; padding:15px; width:200px; text-align:center;">
+
+<img src="{{ product.image.url }}" width="180">
+
+<h3>{{ product.name }}</h3>
+
+<p>KES {{ product.price }}</p>
+
+<a href="{% url 'product_detail' product.id %}">View Product</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</body>
+</html>
