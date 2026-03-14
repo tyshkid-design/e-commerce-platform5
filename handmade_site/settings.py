@@ -31,18 +31,7 @@ SECRET_KEY = 'django-insecure-ptj3x#+hk7%e-2bj!37x_kfz1^dvblkx3#^!mpv+!yd8g)7j70
 DEBUG = True
 
 
-ENVIRONMENT = os.getenv("DJANGO_ENV", "development")
-
-if ENVIRONMENT == "production":
-    ALLOWED_HOSTS = [
-        "e-commerce-platform5.onrender.com",
-        ".onrender.com"
-    ]
-else:
-    ALLOWED_HOSTS = [
-        "127.0.0.1",
-        "localhost"
-    ]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
