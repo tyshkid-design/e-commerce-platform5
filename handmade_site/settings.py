@@ -16,6 +16,10 @@ from pathlib import Path
 from django.urls import reverse_lazy
 
 import os
+# Old (less modern)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# New (modern approach)
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
