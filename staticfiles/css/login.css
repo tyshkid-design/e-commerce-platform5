@@ -1,0 +1,174 @@
+/* login.css */
+
+body {
+    background:url('{% static "images/handmade-hero.jpg" %}') no-repeat center center fixed;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f9;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    display: flex;
+    max-width: 400px;
+    width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    overflow: hidden;
+    text-align: center;
+}
+
+.login-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.login-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/static/images/handmade-hero.jpg');
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+        filter: brightness(50%);
+}
+
+.login-form-container {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form-container h2 {
+    margin-bottom: 0.5rem;
+    color: #0077cc;
+}
+
+.login-form-container p {
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.login-form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.login-form-container input {
+    width: 100%;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #005fa3;
+    transform: scale(1.05);
+}
+
+.signup-link {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.signup-link a {
+    color: #0077ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .login-hero {
+        display: block;
+    }
+}
+
+.logout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f4f7f9;
+}
+
+.logout-container {
+    text-align: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.logout-container h2 {
+    color: #0077cc;
+    margin-bottom: 1rem;
+}
+
+.logout-container p {
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.logout-container a {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background-color: #0077cc;
+    transition: all 0.3s ease;
+}
+
+.logout-container a:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    background-color: #005fa3;
+}

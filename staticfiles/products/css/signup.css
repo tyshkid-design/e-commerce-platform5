@@ -1,0 +1,61 @@
+/* Signup Page */
+
+body {
+    background-image: url('{% static "images/image.jpg" %}');
+    background-size: cover;
+    background-position: center;
+    background-color: #fff0e5; /* warmer background */
+    font-family: 'Arial', sans-serif;
+}
+.signup-container {
+    width: 400px;
+    margin: 80px auto;
+    padding: 50px;
+    background-color: rgba(250, 245, 240, 0.95); /* warmer than login */
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.signup-container h1 {
+    color: #FF6F61; /* different accent color */
+    margin-bottom: 15px;
+}
+
+.signup-container p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.signup-container input:focus {
+    border-color: #FF6F61;
+    box-shadow: 0 0 10px rgba(255,111,97,0.3);
+}
+
+.signup-container button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #FF6F61;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.signup-container button:hover {
+    background-color: #E55B50;
+}
+
